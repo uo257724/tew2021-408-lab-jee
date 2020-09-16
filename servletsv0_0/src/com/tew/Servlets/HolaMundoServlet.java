@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Vector;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,41 +45,45 @@ public class HolaMundoServlet extends HttpServlet {
     	// Establecemos el contador como atributo del context bajo el nombre
     	// contador. En caso de que ya existiera, sobreescribiría la referencia
     	// existente con la nueva.
+    	/*
     	getServletContext().setAttribute("contador",new
     	Integer(contador.intValue()+1));
-
+    	 
     	
     	if( listado == null) {
     		listado = new Vector(); //Se instancia para evitar errores
     	}
     	
     	request.getSession().setAttribute("listado", listado);
-    	
+    	*/
     		 response.setCharacterEncoding("UTF-8");
     		 response.setContentType("text/html");
-    		 PrintWriter out = response.getWriter();
-    		 out.println("<HTML>");
-    		 out.println("<HEAD><TITLE>Hola Mundo!</TITLE></HEAD>");
-    		 out.println("<BODY>");
+//    		 PrintWriter out = response.getWriter();
+//    		 out.println("<HTML>");
+//    		 out.println("<HEAD><TITLE>Hola Mundo!</TITLE></HEAD>");
+//    		 out.println("<BODY>");
+//    		 
+//    		 if(nombre != null) {
+//    			 listado.addElement(nombre);
+//    			 out.println("<br>Hola "+nombre+"<br>");
+//    		 }
+//    		 
+//    		 out.println("Bienvenido a mi primera página web!");
+//    		 
+//    		 out.println("<br>");
+//    		 out.println("Contigo, hoy me han visitado:<br>");
+//    		 for ( int i = 0 ; i < listado.size() ; i++ ){
+//    			 out.println("<br>"+(String)listado.elementAt(i));
+//    		 }
+//    		 out.println("<a href=\"index.html\">volver</a>");
+//    		 
+//    		 out.println("<br><br>" + contador +" visitas"); //Contador de visitas
+//    		 
+//    		 out.println("</BODY></HTML>");
     		 
-    		 if(nombre != null) {
-    			 listado.addElement(nombre);
-    			 out.println("<br>Hola "+nombre+"<br>");
-    		 }
-    		 
-    		 out.println("Bienvenido a mi primera página web!");
-    		 
-    		 out.println("<br>");
-    		 out.println("Contigo, hoy me han visitado:<br>");
-    		 for ( int i = 0 ; i < listado.size() ; i++ ){
-    			 out.println("<br>"+(String)listado.elementAt(i));
-    		 }
-    		 out.println("<a href=\"index.html\">volver</a>");
-    		 
-    		 out.println("<br><br>" + contador +" visitas"); //Contador de visitas
-    		 
-    		 out.println("</BODY></HTML>");
-    		 
+    		 RequestDispatcher dispatcher =
+    				 getServletContext().getNamedDispatcher("HolaMundoVista");
+    				dispatcher.forward(request, response);
     		 
     	}
 
