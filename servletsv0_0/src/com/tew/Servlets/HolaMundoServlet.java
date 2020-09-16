@@ -2,6 +2,7 @@ package com.tew.Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Vector;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,6 +32,13 @@ public class HolaMundoServlet extends HttpServlet {
     		 throws IOException, ServletException {
     	
     	String nombre = (String) request.getParameter("NombreUsuario");
+    	Vector listado = (Vector) request.getSession().getAttribute("listado");
+    	
+    	if( listado == null) {
+    		listado = new Vector(); //Se instancia para evitar errores
+    	}
+    	
+    	request.getSession().setAttribute("listado", listado);
     	
     		 response.setCharacterEncoding("UTF-8");
     		 response.setContentType("text/html");
@@ -40,11 +48,23 @@ public class HolaMundoServlet extends HttpServlet {
     		 out.println("<BODY>");
     		 
     		 if(nombre != null) {
+    			 listado.addElement(nombre);
     			 out.println("<br>Hola "+nombre+"<br>");
     		 }
+    		 
     		 out.println("Bienvenido a mi primera página web!");
+    		 
+    		 out.println("<br>");
+    		 out.println("Contigo, hoy me han visitado:<br>");
+    		 for ( int i = 0 ; i < listado.size() ; i++ ){
+    			 out.println("<br>"+(String)listado.elementAt(i));
+    		 }
+    		 out.println("<a href=\"index.html\">volver</a>");
+    		 
     		 out.println("</BODY></HTML>");
-    		}
+    		 
+    		 
+    	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
