@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Vector;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +35,19 @@ public class HolaMundoServlet extends HttpServlet {
     	String nombre = (String) request.getParameter("NombreUsuario");
     	Vector listado = (Vector) request.getSession().getAttribute("listado");
     	
+    	ServletContext contexto = getServletContext(); //Usar atributos get y set Attributte
+    	
+    	Integer contador= (Integer) getServletContext().getAttribute("contador");
+    	if ( contador == null ){
+    	 contador = new Integer(0);
+    	}
+    	// Establecemos el contador como atributo del context bajo el nombre
+    	// contador. En caso de que ya existiera, sobreescribiría la referencia
+    	// existente con la nueva.
+    	getServletContext().setAttribute("contador",new
+    	Integer(contador.intValue()+1));
+
+    	
     	if( listado == null) {
     		listado = new Vector(); //Se instancia para evitar errores
     	}
@@ -60,6 +74,8 @@ public class HolaMundoServlet extends HttpServlet {
     			 out.println("<br>"+(String)listado.elementAt(i));
     		 }
     		 out.println("<a href=\"index.html\">volver</a>");
+    		 
+    		 out.println("<br><br>" + contador +" visitas"); //Contador de visitas
     		 
     		 out.println("</BODY></HTML>");
     		 
