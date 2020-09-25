@@ -6,6 +6,8 @@ public class Alumno {
 	private String apellidos;
 	private String iduser;
 	private String email;
+	
+	private String err = ""; 
 
 	public String getNombre() {
 		return nombre;
@@ -38,4 +40,13 @@ public class Alumno {
 	public Long getId() {
 		return id;
 	}
+	public String getErr() {
+		return err;
+	}
+	public void setErr(String err) {
+		this.err = err;
+	}
+	
+	
+	
 }

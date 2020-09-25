@@ -52,6 +52,7 @@ public class BeanAlumnos implements Serializable{
 			return "exito";
 		} catch (Exception e) {
 			e.printStackTrace();
+			alumno.setErr("Metodo listado() de la clase BeanAlumnos.java");
 			return "error";
 		}
 	}
@@ -63,9 +64,12 @@ public class BeanAlumnos implements Serializable{
 			service = Factories.services.createAlumnosService();
 			//Recargamos el alumno en la tabla de la base de datos por si hubiera cambios.
 			alumno = service.findById(alumno.getId());
+			alumno.setErr("Metodo edit() de la clase BeanAlumnos.java");
 			return "exito";
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			alumno.setErr("Metodo edit() de la clase BeanAlumnos.java");
 			return "error";
 		}
 	}
@@ -85,9 +89,11 @@ public class BeanAlumnos implements Serializable{
 
 			//Actualizamos el javabean de alumnos inyectado en la tabla
 			alumnos = (Alumno [])service.getAlumnos().toArray(new Alumno[0]);
+			alumno.setErr("Metodo salva() de la clase BeanAlumnos.java");
 			return "exito";
 		} catch (Exception e) {
 			e.printStackTrace();
+			alumno.setErr("Metodo salva() de la clase BeanAlumnos.java");
 			return "error";
 		}
 	}
@@ -100,12 +106,13 @@ public class BeanAlumnos implements Serializable{
 			service = Factories.services.createAlumnosService(); //creamos el servicio a traves del la capa
 			
 			service.deleteAlumno(alumno.getId());
-			
+			alumno.setErr("Metodo baja() de la clase BeanAlumnos.java");
 			return "exito";
 		}
 		catch(Exception e) {
 			
 			e.printStackTrace();
+			alumno.setErr("Metodo baja() de la clase BeanAlumnos.java");
 			return "error";
 			
 		}

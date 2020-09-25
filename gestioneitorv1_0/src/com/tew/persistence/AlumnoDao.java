@@ -22,5 +22,7 @@ public interface AlumnoDao {
 	void update(Alumno a) throws NotPersistedException;
 	void delete(Long id) throws NotPersistedException;
 	Alumno findById(Long id);
+	
+	String err = ""; //String para almacenar la info de error 
 
 }
