@@ -91,4 +91,24 @@ public class BeanAlumnos implements Serializable{
 			return "error";
 		}
 	}
+	
+	public String baja() {
+		
+		AlumnosService service;
+		
+		try {
+			service = Factories.services.createAlumnosService(); //creamos el servicio a traves del la capa
+			
+			service.deleteAlumno(alumno.getId());
+			
+			return "exito";
+		}
+		catch(Exception e) {
+			
+			e.printStackTrace();
+			return "error";
+			
+		}
+		
+	}
 }
