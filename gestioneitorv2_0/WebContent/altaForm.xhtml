@@ -4,6 +4,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
        xmlns:f="http://java.sun.com/jsf/core"
        xmlns:p="http://primefaces.org/ui">
+       <f:view locale="#{settings.locale}">
 <h:head>
 <title>Cabecera</title> 
 </h:head>
@@ -12,13 +13,14 @@
 <!-- Aqu� va tu c�digo -->
 <h:form>
 <p:panelGrid columns="2">
-  NOMBRE:     <p:inputText value="#{controller.alumno.nombre}"/>
-  APELLIDOS:  <p:inputText value="#{controller.alumno.apellidos}"/>
-  USERID:     <p:inputText value="#{controller.alumno.iduser}"/>
-  EMAIL:      <p:inputText value="#{controller.alumno.email}"/>
-</p:panelGrid>
-  <p:commandButton value="Salvar" action="#{controller.salva}"/>
+  #{msgs.nombre}:     <p:inputText value="#{controller.alumno.nombre}"/>
+  #{msgs.apellidos}:  <p:inputText value="#{controller.alumno.apellidos}"/>
+  #{msgs.userid}:     <p:inputText value="#{controller.alumno.iduser}"/>
+  #{msgs.correo}:      <p:inputText value="#{controller.alumno.email}"/>
+</p:panelGrid>	
+  <p:commandButton value="#{msgs.botonSalvar}" action="#{controller.salva}"/>
 </h:form>
-
+<p:commandLink value="#{msgs.enlaceCasa}" action="index.xhtml"/>
 </h:body>
+</f:view>
 </html>

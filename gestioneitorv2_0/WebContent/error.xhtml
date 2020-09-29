@@ -2,7 +2,10 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
+      
+<f:view locale="#{settings.locale}">
 <h:head>
 <title>Cabecera</title> 
 </h:head>
@@ -19,8 +22,9 @@
 <p>Por favor reinténtelo pasados unos minutos</p>
 <p>Si el error persiste póngase en contacto con el administrador</p>
 
-<p:commandLink value="Volver a pagina principal" action="index.xhtml"/>
+<p:commandLink value="#{msgs.enlaceCasa}" action="index.xhtml"/>
 </h:form> 
   
 </h:body>
+</f:view>
 </html>
