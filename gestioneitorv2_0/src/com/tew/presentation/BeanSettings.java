@@ -18,7 +18,7 @@ public class BeanSettings implements Serializable{
 	public Locale getLocale() { 
 		/*Habria que cambiar algo de código para coger locale del navegador la primera vez que se accede a getLocale(), de momento el idioma de partida “es”*/     
 		return(locale);    
-	}   
+	}    
 	
 	public void setSpanish(ActionEvent event) {      
 		locale = SPANISH;     
