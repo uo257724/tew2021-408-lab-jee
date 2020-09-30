@@ -16,6 +16,9 @@ public class BeanSettings implements Serializable{
 	
 	private Locale locale = new Locale("es");    
 	
+//	@ManagedProperty(value="#{alumno}") 
+//	private BeanAlumno alumno;
+	
 	public Locale getLocale() { 
 		/*Habria que cambiar algo de código para coger locale del navegador la primera vez que se accede a getLocale(), de momento el idioma de partida “es”*/     
 		return(locale);    
@@ -29,5 +32,15 @@ public class BeanSettings implements Serializable{
 	public void setEnglish(ActionEvent event) {      
 		locale = ENGLISH;      
 		FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);   
-	}  
+	}
+
+//	public BeanAlumno getAlumno() {
+//		return alumno;
+//	}
+//
+//	public void setAlumno(BeanAlumno alumno) {
+//		this.alumno = alumno;
+//	}  
+	
+	
 } 
