@@ -139,12 +139,15 @@ public class BeanAlumnos implements Serializable{
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(new
 						String("alumno"));
 		//si no existe lo creamos e inicializamos
-		if (alumno == null) {
-			System.out.println("BeanAlumnos - No existia");
-			alumno = new BeanAlumno();
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put( "alumno",
-					alumno);
-		}
+//		if (alumno == null) {
+//			System.out.println("BeanAlumnos - No existia");
+//			alumno = new BeanAlumno();
+//			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put( "alumno",
+//					alumno);
+//		}
+		
+		factoriaDependencia f = null;
+		alumno = f.factoria((BeanAlumno) alumno);
 	}
 	@PreDestroy
 	public void end() {
