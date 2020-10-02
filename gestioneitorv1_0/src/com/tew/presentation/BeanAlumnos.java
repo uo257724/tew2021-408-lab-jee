@@ -76,7 +76,7 @@ public class BeanAlumnos implements Serializable{
 	public String salva() {
 		AlumnosService service;
 		try {
-			// Acceso a la implementacion de la capa de negocio
+			// Acceso a la implementacion de la capa de negoci
 			// a través de la factoría
 			service = Factories.services.createAlumnosService();
 			//Salvamos o actualizamos el alumno segun sea una operacion de alta o de edición
