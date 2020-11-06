@@ -6,7 +6,7 @@ import org.json.simple.*;
 
 public class Main {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated methd stub
 		
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target("http://localhost:8080/gestioneitorv4_0/pisos.json");
