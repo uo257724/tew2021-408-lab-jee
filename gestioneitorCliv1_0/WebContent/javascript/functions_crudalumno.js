@@ -2,13 +2,19 @@
  * 
  */
 
-// Carga los datos del servicio sobreescribiendo el dato this.tbAlumnos.
+$(function() {
+	// Creamos el modelo con los datos y la conexión al servicio web.
+	var model = new Model();
+
+});
+
+//Carga los datos del servicio sobreescribiendo el dato this.tbAlumnos.
 this.load = function() {
 	this.tbAlumnos = AlumnosServicesRs.getAlumnos();
 }
 
 
-// Llamamos al servicio de alta de alumno
+//Llamamos al servicio de alta de alumno
 this.add = function(alumno) {
 	// Llamamos al servicio de alta de alumno
 	AlumnosServicesRs.saveAlumno({
@@ -20,14 +26,14 @@ this.add = function(alumno) {
 }
 
 
-// Actualización de un alumno existente: PENDIENTE DE IMPLEMENTAR
+//Actualización de un alumno existente: PENDIENTE DE IMPLEMENTAR
 this.edit = function(alumno) {
-	
+
 	AlumnosServicesRs.updateAlumno({
 		$entity : alumno,
 		$contentType : "application/json"
 	});
-	
+
 	this.load();
 }
 
