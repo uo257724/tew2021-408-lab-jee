@@ -2,11 +2,19 @@
  * 
  */
 
+
+
 $(function() {
 	// Creamos el modelo con los datos y la conexión al servicio web.
 	var model = new Model();
-
+	// Creamos la vista que incluye acceso al modelo.
+	var view = new View();
+	// Creamos el controlador
+	var control = new Controller(model, view);
+	// Iniciamos la aplicación
+	control.init();
 });
+
 
 //Carga los datos del servicio sobreescribiendo el dato this.tbAlumnos.
 this.load = function() {
@@ -181,3 +189,7 @@ $("#tblList").on("click", ".btnEdit",
 	// editar
 	that.view.loadAlumnoInForm(alumno);
 }); 
+
+
+
+
