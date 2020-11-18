@@ -89,3 +89,15 @@ this.list = function(lista) {
 				+ "<td>" + alumno.email + "</td></tr>");
 	}
 }
+
+this.loadAlumnoFromForm = function() {
+	 // Cogemos el alumno nuevo del formulario.
+	 var alumno = {
+	 id : $("#id").val(),
+	 iduser : $("#iduser").val(),
+	 nombre : $("#nombre").val(),
+	 apellidos : $("#apellidos").val(),
+	 email : $("#email").val()
+	 };
+	 return alumno;
+	 }
