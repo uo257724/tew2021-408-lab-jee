@@ -2,6 +2,11 @@
  * 
  */
 
+//Clase que contiene el Modelo de la aplicación.
+function Model(){
+ //Lista de alumnos.
+ this.tbAlumnos = null;
+}; 
 
 
 $(function() {
